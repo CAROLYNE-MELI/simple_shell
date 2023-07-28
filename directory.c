@@ -1,4 +1,4 @@
-#include "main.h"
+#include "header.h"
 /**
  * hundle_path - hundles the  PATH of commands
  * @argv: array of strings
@@ -7,25 +7,25 @@
 **/
 char *hundle_path(char **argv, char **path_tokens)
 {
-	struct dirent *dir_keep;
+	struct dirent *dir_store;
 	DIR *dr = NULL;
 	int m;
 	char *asdf = NULL;
-	char *keep = NULL;
+	char *store = NULL;
 
 	if (argv[0][0] == '/')
 		return (argv[0]);
 	for (m = 0; path_tokens[m] != '\0'; m++)
 	{
 		dr = opendir(path_tokens[m]);
-		while ((dir_keep = readdir(dr)) != NULL)
+		while ((dir_store = readdir(dr)) != NULL)
 		{
-			if (_strcmp(argv[0], dir_keep->d_name) == 0)
+			if (_strcmp(argv[0], dir_store->d_name) == 0)
 			{
 				asdf = path_tokens[m];
-				keep = _executable(asdf, argv);
+				store = _executable(asdf, argv);
 				closedir(dr);
-				return (keep);
+				return (store);
 			}
 		}
 	closedir(dr);
@@ -57,22 +57,22 @@ char *_executable(char *asdf, char **argv)
 **/
 char *_strcat(char *dest, char *str)
 {
-	int a, b, c;
+	int a, p, x;
 	char *newcmd = NULL;
 
-	for (b = 0; dest[b] != '\0'; b++)
+	for (p = 0; dest[p] != '\0'; p++)
 	{}
 	for (a = 0; str[a] != '\0'; a++)
 	{}
-	newcmd = malloc(sizeof(char) * (a + b + 1));
-	for (c = 0; c < b; c++)
+	newcmd = malloc(sizeof(char) * (a + p + 1));
+	for (x = 0; x < p; x++)
 	{
-		newcmd[c] = dest[c];
+		newcmd[x] = dest[x];
 	}
-	for (c = 0; c < a; c++)
+	for (x = 0; x < a; x++)
 	{
-		newcmd[c + b] = str[c];
+		newcmd[x + p] = str[x];
 	}
-	newcmd[c + b] = '\0';
+	newcmd[x + p] = '\0';
 	return (newcmd);
 }

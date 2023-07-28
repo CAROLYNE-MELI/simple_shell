@@ -1,72 +1,75 @@
-#include "main.h"
+#include "header.h"
+
 /**
- * _strcmp - compares strings
- * @s1: input string 1
- * @s2: input string 2
- * Return: s1[m] - s2[h] on failure or 0 on success
+ * _strcmp - compares two strings to see if they are the same
+ * @s1: string 1
+ * @s2: string 2
+ * Return: s1[i] - s2[j] on failure or 0 on success
 **/
 int _strcmp(char *s1, char *s2)
 {
-	int m = 0, h = 0;
+	int i = 0, j = 0;
 
-	for ( s1[m] != '\0' || s2[h] != '\0'; m++, h++;)
+	for (; s1[i] != '\0' || s2[j] != '\0'; i++, j++)
 	{
-		if (s1[m] != s2[h])
+		if (s1[i] != s2[j])
 		{
-			return (s1[m] - s2[h]);
+			return (s1[i] - s2[j]);
 		}
 	}
 return (0);
 }
 
 /**
- * string_length - finds the length of string
- * @s:input string
- * Return: the length of string
+ * stringlength - gets the length of a string
+ * @s: a string
+ * Return: length of string
 **/
-int string_length(char *str)
+int string_length(char *s)
 {
-	int m;
+	int i;
 
-	for (m = 0; str[m] != '\0'; m++)
+	for (i = 0; s[i] != '\0'; i++)
 	{}
-		return (m);
+		return (i);
 }
 
 /**
- * _strdup - hellps to duplicates a string
- * @str: the string to be duplicate
- * Return: NULL on failure/pointer to string dublicate
+ * _strdup - duplicates a string
+ * @str: string to duplicate
+ * Return: NULL on failure or a pointer to the new string on success
 **/
 char *_strdup(char *str)
 {
-	char *dupstr = NULL;
-	int s;
+	char *duplicate = NULL;
+	int i;
 	int len = 0;
 
 	if (str == NULL)
 		return (NULL);
-	for (len = 0; str[len] != '\0'; len++);
-	dupstr = malloc((len + 1) * sizeof(char));
-	if (dupstr == NULL)
+	for (len = 0; str[len] != '\0'; len++)
+		;
+	duplicate = malloc((len + 1) * sizeof(char));
+	if (duplicate == NULL)
 		return (NULL);
-	for (s = 0; s <= len; s++)
-		dupstr[s] = str[s];
-	return (dupstr);
+	for (i = 0; i <= len; i++)
+		duplicate[i] = str[i];
+return (duplicate);
 }
+
 /**
- * _free - frees double pointers
- * @dpointer: double pointer
+ * dubbie_free - frees double pointers
+ * @dubbie_pointie: a double pointer
  * Return: void
 **/
-void _free(char **dpointer)
+void _free(char **dubbie_pointie)
 {
-	int m = 0;
+	int i = 0;
 
-	while (dpointer[m])
+	while (dubbie_pointie[i])
 	{
-		free(dpointer[m]);
-		m++;
+		free(dubbie_pointie[i]);
+		i++;
 	}
-	free(dpointer);
+	free(dubbie_pointie);
 }

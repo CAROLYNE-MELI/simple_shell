@@ -1,4 +1,4 @@
-#include "main.h"
+#include "header.h"
 /**
  * func_finder - hundles the builtin functions
  * @argv: array of arguments

@@ -1,5 +1,6 @@
-#ifndef MAIN_H
-#define MAIN_H
+#ifndef HEADER_H
+#define HEADER_H
+
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>

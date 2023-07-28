@@ -1,4 +1,4 @@
-#include "main.h"
+#include "header.h"
 /**
  * sh_exit - exits the shell
  * @argv: array of arguments

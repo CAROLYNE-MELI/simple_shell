@@ -1,10 +1,9 @@
 #include "header.h"
 
 /**
- * main - main function for our simple shell
- * description: main
- * @argc: argc
- * @argv: argv
+ * main - entry point
+ * @argc: arguments count
+ * @argv: array of arguments
  * Return: 0
  */
 int main(int argc, char **argv)
@@ -14,10 +13,9 @@ int main(int argc, char **argv)
 }
 
 /**
- * shell_loop - shell loop to constantly run the shell
- * description: until the exit command is entered
- * @argc: argc
- * @argv: argv
+ * shell_loop - re runs the shell after excecution
+ * @argc: number of arguments
+ * @argv:array of arguments
  * Return: 0
  */
 int shell_loop(int argc, char **argv)
@@ -34,9 +32,6 @@ int shell_loop(int argc, char **argv)
 	buffer = NULL;
 	while (1)
 	{
-		/* buffer = malloc(sizeof(char) * bufsize);*/
-		   /* if (buffer == NULL) */
-		   /* perror("Malloc failure\n"); */
 		if (isatty(STDIN_FILENO))
 		{
 			write(STDOUT_FILENO, prompt, string_length(prompt));
@@ -61,12 +56,11 @@ int shell_loop(int argc, char **argv)
 		free(argv);
 	}
 	free(buffer);
-return (0);
+	return (0);
 }
 
 /**
- * tokenize - tokenize user input
- * description: to breakdown command
+ * tokenize - tokenizez the user input
  * @userinput: userinput
  * Return: 0
  */
@@ -99,16 +93,13 @@ char **tokenize(char *userinput)
 		}
 		argv[token_inc] = NULL;
 	}
-
-	/*free(userinput);*/
 	return (argv);
 }
 
 /**
- * executor - executes the command given
- * description: by forking and execing
- * @asdf: asdf
- * @argv: argv
+ * execmd - executes the command inputed buy the user
+ * @asdf: gets the current proces
+ * @argv: array of arguments
  * Return: 0
  */
 

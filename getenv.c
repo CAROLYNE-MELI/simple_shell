@@ -1,4 +1,4 @@
-#include "main.h"
+#include "header.h"
 
 /**
  * _get_env - gets the current env

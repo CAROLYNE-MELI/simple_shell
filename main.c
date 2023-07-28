@@ -105,7 +105,7 @@ char **tokenize(char *userinput)
 }
 
 /**
- * executor - executes the command given
+ * execmd - executes the command given
  * description: by forking and execing
  * @asdf: asdf
  * @argv: argv

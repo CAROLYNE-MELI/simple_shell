@@ -38,12 +38,12 @@ int func_finder(char **argv, char *buffer)
 	return (0);
 }
 /**
- * sh_alias - checks for the number ofalias
+ * check_alias - checks for the number ofalias
  * @argv: array of arguments
  * Return: 0
 **/
 int check_alias(char **argv)
 {
-        argv = argv;
-        return (0);
+	argv = argv;
+	return (0);
 }

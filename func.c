@@ -21,7 +21,7 @@ return (0);
 }
 
 /**
- * stringlength - gets the length of a string
+ * string_length - gets the length of a string
  * @s: a string
  * Return: length of string
 **/
@@ -58,7 +58,7 @@ return (duplicate);
 }
 
 /**
- * dubbie_free - frees double pointers
+ * _free - frees double pointers
  * @dubbie_pointie: a double pointer
  * Return: void
 **/

@@ -1,68 +1,42 @@
-#include "header.h"
+#include "shell.h"
 /**
- * sh_exit - exits the shell
- * @argv: array of arguments
- * @buffer: buffer to be exited
- * Return: 0
+ * _exit_command - this function closes the simple_shell when
+ * @arg: pointer with the direction argument.
+ * @lineptr: standar input string
+ * @_exit: value of exit
+ * Return: None
  */
-int sh_exit(char **argv, char *buffer)
+void _exit_command(char **arg, char *lineptr, int _exit)
 {
-	free(argv);
-	free(buffer);
-	exit(0);
-}
+	int exit_status = 0;
 
-/**
- * _env - prints the details of environment variable
- * Return: 0
- */
-int _env(void)
-{
-	int m;
-	int h;
-
-	char *string = NULL;
-
-	for (m = 0; environ[m] != NULL; m++)
+	if (!arg[1])
 	{
-		for (h = 0; environ[m][h] != '\0'; h++)
-		{
-			string = (&(environ[m][h]));
-			write(STDOUT_FILENO, string, string_length(string));
-			break;
-		}
-		_putchar('\n');
+		free(lineptr);
+		free(arg);
+		exit(_exit);
 	}
-	return (0);
-}
-/**
-* _setenv - sets the env of enviroment
-* @argv: array of arguments
-* Return: 0
-*/
-int _setenv(char **argv)
-{
-	argv = argv;
-	return (0);
-}
-/**
-* _unsetenv - unsets the env of enviroment
-* @argv: array of arguments
-* Return: 0
-*/
-int _unsetenv(char **argv)
-{
-	argv = argv;
-	return (0);
+	exit_status = atoi(arg[1]);
+
+	free(lineptr);
+	free(arg);
+	exit(exit_status);
 }
 
 /**
- * _cd - changes current directory
- * @argv: array of arguments
- * Return: 0
-**/
-int _cd(char **argv)
+ *_getenv - function to get all env
+ *@env: enviroment
+ *Return: 0
+ */
+
+void _getenv(char **env)
 {
-	argv = argv;
-	return (0);
+	size_t run = 0;
+
+	while (env[run])
+	{
+		write(STDOUT_FILENO, env[run], _strlen(env[run]));
+		write(STDOUT_FILENO, "\n", 1);
+		run++;
+	}
 }
